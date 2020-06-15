@@ -1,0 +1,9 @@
+.lh-5rem{
+    line-height: 5rem;
+}
+.no-data-available {
+    text-align: center;
+  }
+  .dataTables_empty {
+    display: none;
+  }

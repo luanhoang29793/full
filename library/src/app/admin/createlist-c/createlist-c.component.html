@@ -1,0 +1,41 @@
+<div class="container-fluid">
+    <button (click)="createCategory()" class="btn btn-info" style="margin-left: 10px">Thêm thể loại</button>
+    <hr>
+
+    <input type="text" [(ngModel)]="searchText" placeholder="Tìm kiếm" />
+
+    <hr>
+
+    <table  class="table-bordered ">
+        <tr class="table-danger">
+            <th style="width: 15rem; height: 5rem;;text-align: center">Tên Thể Loại</th>
+            <th style="text-align: center; width: 1000px">Giới Thiệu</th>
+            <th style="text-align: center">Sửa</th>
+            <th style="text-align: center">Xóa</th>
+            <th style="text-align: center">Trang Truyện</th>
+        </tr>
+        <tr *ngFor="let category1 of category | async | filter: searchText |paginate: {itemsPerPage:10,currentPage:p}">
+            <td style="text-align: center;font-size: 120%;" class="lh-5rem">
+                <div>{{category1.nameCategory}}</div>
+
+            </td>
+            <td style="padding-top: 1.5rem;"> {{category1.information}}
+            </td>
+
+            <td style="text-align: center">
+                <button (click)="EditCategory(category1.idCategory)" class="btn btn-primary"
+                    style=" margin-top: 8px">Chỉnh sửa</button>
+            </td>
+            <td style="text-align: center">
+                <button (click)="DeleteCategory(category1.idCategory)" class="btn btn-danger"
+                    style="text-align: center; margin-top: 8px; ">Xóa</button>
+            </td>
+            <td style="text-align: center">
+                <button (click)="ListCategory(category1.idCategory)" class="btn btn-info"
+                    style="text-align: center;; margin-top: 8px;">Trang Thể Loại</button>
+            </td>
+        </tr>
+    </table>
+    <pagination-controls (pageChange)="p=$event"></pagination-controls>
+
+</div>

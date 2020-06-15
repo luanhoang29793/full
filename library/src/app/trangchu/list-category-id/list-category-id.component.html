@@ -1,0 +1,10 @@
+
+<div class="top-genres bg-dark">
+
+    <a [routerLink]="" class="genre" (click)="listStoryCategory(category1.idCategory)" *ngFor="let category1 of category | async">
+        <i class="yyicon icon-dragon"></i>
+    <div class="ml-2">
+     <div class="name">{{category1.nameCategory}}</div>
+    </div>
+    </a>
+</div>

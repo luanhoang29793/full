@@ -1,0 +1,20 @@
+<div class="container-fluid">
+    <h1>Thêm Tác giả </h1>
+     <form (ngSubmit)="onSubmit()">
+       <div class="form-group">
+          <label for="name">Tên Tác giả</label>
+          <input type="text" class="form-control" id="firstName1" required [(ngModel)]="author.nameAuthor" name="firstName1">
+        </div>
+        <div class="form-group">
+          <label for="name">Quốc gia</label>
+          <input type="text" class="form-control" id="lastName1" required [(ngModel)]="author.nation" name="lastName1">
+        </div>
+        <div class="form-group">
+          <label for="name">Giới thiệu</label>
+          <input type="text" class="form-control" id="lastName" required [(ngModel)]="author.information" name="lastName">
+        </div>
+        <button type="submit" class="btn btn-success">Lưu</button>
+      </form>
+      <button (click)="listAuthor()" class="btn btn-primary" style="margin-top: 20px;">Quay lại danh sách Thể loại</button>
+
+     </div>

@@ -1,0 +1,17 @@
+<div class="container-fluid">
+  <h1>Sửa Thể loại </h1>
+   <form (ngSubmit)="onSubmit()">
+     <div class="form-group">
+        <label for="name">Tên Thể Loại</label>
+        <input type="text" class="form-control" id="firstName" required [(ngModel)]="category.nameCategory" name="firstName"  maxlength="20"/>
+      </div>
+  
+      <div class="form-group">
+        <label for="name">Thông tin</label>
+        <input type="text" class="form-control" id="lastName" required [(ngModel)]="category.information" name="lastName"/>
+      </div>  
+      <button type="submit" class="btn btn-success">Lưu</button>
+    </form>
+    <button (click)="listCategory()" class="btn btn-primary" style="margin-top: 20px;">Quay lại danh sách Thể loại</button>
+
+   </div>

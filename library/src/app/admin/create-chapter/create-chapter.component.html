@@ -1,0 +1,35 @@
+<div class="container-fluid">
+
+    <h1 class="page-header">{{book.nameBook}}
+    </h1>
+
+    <form class="mt-4" id="id_form" (ngSubmit)="onSubmit()">
+        <div id="div_id_chap_title" class="form-group"> <label for="id_chap_title" class="col-form-label ">
+                Tiêu đề Chương
+            </label>
+            <div class="">
+                <input type="text" name="chap_title" class="weui_input weui-input form-control" required
+                    [(ngModel)]="chapter.nameChapter" id="id_chap_title" />
+            </div>
+        </div>
+        <div id="div_id_chap_content" class="form-group"> <label for="id_chap_content" class="col-form-label ">
+                Nội Dung Chương
+            </label>
+            <div class="">
+                <textarea name="chap_content" cols="200" rows="20" class=" simplemde-box" id="id_chap_content" required
+                    [(ngModel)]="chapter.contentChapter"
+                    data-simplemde-options="{&quot;placeholder&quot;: &quot;&quot;, &quot;spellChecker&quot;: false, &quot;status&quot;: false, &quot;autosave&quot;: {&quot;enabled&quot;: false}, &quot;insertTexts&quot;: {&quot;image&quot;: [&quot;![](&quot;, &quot;)&quot;], &quot;link&quot;: [&quot;[&quot;, &quot;]()&quot;]}}"></textarea>
+                <style>
+                    .field-chap_content label {
+                        float: none;
+                    }
+                </style>
+            </div>
+        </div>
+        <br>
+        <button type="submit" class="btn btn-success">Tạo</button>
+    </form>
+    <br>
+    <button (click)="listStory(book.idBook)" class="btn btn-danger" > Tới danh sách truyện</button>
+
+</div>

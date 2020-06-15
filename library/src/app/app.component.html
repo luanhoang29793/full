@@ -1,0 +1,33 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light navbar-top">
+    <div class="container">
+    <ul class="navbar-nav mr-auto">
+    <li class="nav-item active">
+    <a class="nav-link pl-0" [routerLink]="['/user']" title="TruyenYY">
+    <h1 style="font-size:11px; font-weight:inherit; font-family: inherit; margin:0; padding: 0; line-height: 40px;">
+    Thế Giới Truyện Light novel
+    </h1>
+    </a>
+    </li>
+    </ul>
+    <ul class="navbar-nav">
+    <li class="nav-item">
+        <a routerLink="user" class="nav-link" routerLinkActive="active">User</a>
+    </li>
+    </ul>
+    <ul class="navbar-nav">
+    <li class="nav-item">
+        <a routerLink="admin" class="nav-link" routerLinkActive="active">Admin</a>
+    </li>
+   
+    <li class="nav-item">
+    <div id="react-root_desktop-userbox">
+    <div style="padding: 0 10px;">
+    <div style="background-color: #eee; border-radius: 50%; width: 30px; height: 30px; margin-top: 5px;"></div>
+    </div>
+    </div>
+    </li>
+    </ul>
+    </div>
+    </nav>
+
+    <router-outlet ></router-outlet>

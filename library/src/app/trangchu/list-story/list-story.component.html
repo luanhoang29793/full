@@ -1,0 +1,26 @@
+<div class="card card-home">
+    <h3 class="card-header">
+        Lựa Chọn Của Biên Tập Viên
+    </h3>
+    <div class="row">
+        <div class="col-6" *ngFor="let book1 of book | async">
+            <div class="novel-item"  >
+                <a [routerLink]="" (click)="listChapter(book1.idBook)" class="cover book-shadow"
+                    aria-label="Chế Tạo Siêu Huyền Huyễn (Dịch)">
+                    <picture>
+                        <img [src]="book1.nameImage"
+                            data-sizes="auto" alt="{{book1.nameBook}}" width="80" height="120" class="lazy zoom-me">
+                    </picture>
+                </a>
+                <div class="info">
+                    <h4><a [routerLink]="" (click)="listChapter(book1.idBook)">{{book1.nameBook}}</a></h4>
+                    <div>
+                        <div>{{book1.nameAuthor}}</div>
+                    </div>
+                    <blockquote class="desc">{{book1.summaryBook}}</blockquote>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>

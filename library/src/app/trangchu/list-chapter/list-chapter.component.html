@@ -1,0 +1,77 @@
+
+    
+  <nav aria-label="breadcrumb" style="margin-left: 387px; margin-right: 387px;">
+    <ol class="breadcrumb">
+    <li class="breadcrumb-item"><a [routerLink]="['/user']">Trang Chủ</a></li>
+    <li class="breadcrumb-item"><a [routerLink]="['/user/listStoryCategory',book.idCategory]">{{book.nameCategory}}</a></li>
+    <li class="breadcrumb-item"><a [routerLink]="['/user/listChapter',book.idBook]">{{book.nameBook}}</a></li>
+    </ol>
+    </nav>
+    <div class="container novel-detail">
+        <div class="novel-info">
+            <!-- <a [routerLink]="['/user/listChapter',book.idBook]" class="cover position-relative">
+                    <img [src]="book.nameImage" class="zoom-me lazy" title="{{book.nameBook}}"/>
+            </a> -->
+            <a [routerLink]="['/user/listChapter',book.idBook]"  class="cover position-relative" aria-label="Đọc truyện "><img [src]="book.nameImage" alt="{{book.nameBook}}" class="zoom-me lazy"></a>
+
+            <div class="info">
+                <h1 class="name" style="padding-right: 130px;"> 
+                  {{book.nameBook}}
+                </h1>
+                <br><br>
+                <div class="author">
+                    TÁC GIẢ: {{book.nameAuthor}}
+                </div>
+                <br><br>
+                <div class="author">
+                   THỂ LOẠI: {{book.nameCategory}}
+             </div>
+                
+            </div>
+         
+            <section class="rating">
+                <div id="react-root_novel-base-rate-overview"></div>
+            </section>
+        </div>
+       
+        
+        <div class="d-flex">
+            <div class="left-col">
+                <h3 style="text-align: center" >Giới thiệu truyện</h3>
+                <div class="section intro" id="id_novel_summary">
+                    <div>
+                        {{book.summaryBook}}
+                    </div>
+                    <p class="font-italic"><strong>Chúc bạn có những giây phút vui vẻ khi đọc truyện {{book.nameBook}} </strong></p>
+                    </div>
+            
+                    <ul class="list-unstyled">
+                       
+                        
+                        <li>
+                            <div class="label" style="text-align: center;">Danh sách Chương</div>
+                            <div class="table-rounded mb-4">
+                                <table class="table table-dark my-0" >
+                                    <thead>
+                                        <tr>
+                                            <th scope="col">#</th>
+                                            <th scope="col">Tựa Chương</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody >
+                                        <tr *ngFor="let chapter1 of chapter | async">
+                                            <th scope="row" class="text-muted">1</th>
+                        
+                                            <td><a [routerLink]="['/user/Chapter',chapter1.idChapter]" class="table-chap-title">{{chapter1.nameChapter}}</a></td>
+                                            
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </li>
+                    </ul>
+            </div>
+        </div>
+    
+    
+

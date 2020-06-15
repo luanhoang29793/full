@@ -1,0 +1,21 @@
+.navba {
+    width: 500px;
+    height: 50px;
+    font-weight: bold;
+    font-size: larger;
+    color:#0000EE;
+    position: relative;
+    animation: mymove 10s infinite;
+}
+@keyframes mymove {
+    from {left: 10px;}
+    to {left: 684px;}
+  }
+  .pading{
+    width: 1109px;
+    height: 36px;
+    margin-left: 396.7px;
+    margin-right: 3811px;
+    background-color: #e9ecef;
+}
+  

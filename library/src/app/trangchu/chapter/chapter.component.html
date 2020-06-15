@@ -1,0 +1,45 @@
+<div class="container chapter-detail">
+<nav aria-label="breadcrumb" >
+<ol class="breadcrumb" >
+<li class="breadcrumb-item"><a [routerLink]="['/user']">Trang Chủ</a></li>
+<li class="breadcrumb-item"><a [routerLink]="['/user/listStoryCategory',chapter.idCategory]">{{chapter.nameCategory}}</a></li>
+<li class="breadcrumb-item"><a [routerLink]="['/user/listChapter',chapter.idBook]">{{chapter.nameBook}}</a></li>
+
+</ol>
+</nav>
+
+<div class="wiki-content" id="id_chap_content">
+<h1 class="chapter-title" > {{chapter.nameChapter}}</h1>
+<ul class="list-info list-unstyled">
+<li><a [routerLink]="['/user/Chapter',chapter.idChapter]"><i class="iconfont icon-book"></i>{{chapter.nameChapter}}</a></li>
+<li><i class="iconfont icon-pen"></i> {{chapter.nameAuthor}}</li>
+
+</ul>
+<div class="d-flex">
+</div>
+<div class="inner" #document_editor  id="document_editor"><div>{{chapter.contentChapter}}</div></div>
+</div>
+</div>
+
+
+<div class =" container1" >
+    <div class="row">
+      <div class="col-4">
+        <button (click)="firstChapter(chapter.idChapter)" class="btn btn-info" >Chương Trước</button>
+    </div>
+      <div class="col-4" >
+        <button (click)="Export2Doc(id_chap_content)" class="btn btn-warning"style="margin-left: 124px;;"  >Tải xuống</button>
+      </div>
+      <div class="col-4">
+        <button (click)="SecondChapter(chapter.idChapter)" class="btn btn-info"  style="margin-left: 237px;;">Chương Sau</button>
+    </div>
+    </div>
+  </div>
+
+
+
+       
+
+
+
+

@@ -1,0 +1,57 @@
+<form (ngSubmit)="onSubmit()">
+    <div id="div_id_title" class="form-group"> <label for="id_title" class="col-form-label  requiredField">
+            Tựa Đề<span class="asteriskField">*</span> </label>
+    </div>  
+        <div class="">
+                <input type="text" value ="book.namBook" class="form-control" id="firstName" required [(ngModel)]="book.nameBook" name="firstName"/>
+
+    </div>
+ 
+    <div id="div_id_author" class="form-group">
+        <label for="id_author" class="col-form-label ">
+            Tác Giả
+        </label>
+        <div class=""> 
+            <select  [(ngModel)]="book.idAuthor"
+             name="author" class="weui_select weui-select form-control" id="id_author" >
+             <option [selected]="book.nameAuthor" *ngFor="let author1 of author | async" type="text" 
+              value ={{author1.idAuthor}}>
+                {{author1.nameAuthor}}
+              </option>     
+            </select>
+              </div>
+    </div>
+    <div id="div_id_genres" class="form-group">
+        <label for="id_category" class="col-form-label ">
+           Thể loại
+        </label>
+        <div class=""> <select [(ngModel)]="book.idCategory" 
+             name="genres" class="weui_input weui_input weui-input form-control">
+                <option [selected]="book.nameCategory" *ngFor="let category1 of category | async" type="text"
+                value="{{category1.idCategory}}">{{category1.nameCategory}}</option>
+            </select>
+             <small id="hint_id_genres" class="form-text text-muted">Lựa chọn một thể loại.</small>
+        </div>
+    </div>
+    <div class="">
+        <label for="id_category" class="col-form-label ">
+            Giới thiệu truyện
+         </label>
+        <textarea rows="10" cols="10"
+         type="text" name="title" class="weui_input weui_input weui-input form-control"
+           autofocus="" placeholder="Giới thiệu nội dung truyện" maxlength="255" required [(ngModel)]="book.summaryBook" ></textarea> 
+        </div>
+<div>
+    <h3> Chọn ảnh</h3>
+           <img [src]="book.nameImage" height="200">
+           <br>
+           <label class="btn btn-default">
+            <input type="file" (change)="onSelectFile($event)"/>
+          </label>
+</div>
+<br>
+    <button type="submit" class="btn btn-primary"><i class="material-icons">check</i> Lưu Truyện</button>
+</form>
+<button (click)="listStory()" class="btn btn-info" style="margin-top: 1rem;"> Quay lại </button>
+
+

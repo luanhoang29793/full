@@ -1,0 +1,33 @@
+
+<button (click)="listStory()" class="btn btn-warning" > Quay lại danh sách truyện </button>
+<div class="container-fluid">
+    <h1 class="page-header" style="color: red;">{{book.nameBook}}
+    </h1>
+    <ul class="list-group mb-4 mt-2" *ngFor="let chapter1 of chapter | async">
+    <li class="list-group-item flex-column align-items-start" id="chap-5e5db6c0684ffb7cf94d8885">
+    <h5 class="mb-1">
+        {{chapter1.nameChapter}}
+    </h5>
+    <small>
+    <span class="text-muted">Truyện</span>
+    <span>&middot;</span>
+    <span>&middot;</span>
+    <i class="material-icons" style="font-size: 14px; line-height:14px; color: #aaa;">note</i> 
+    <a href="">{{chapter1.nameBook}}</a>
+    <span>&middot;</span>
+    <i class="material-icons" style="font-size: 14px; line-height:14px; color: #aaa;">edit</i>Tác giả
+    <a href="">{{chapter1.nameAuthor}}</a>
+    </small>
+    <div class="mt-2">
+    <button (click)="editChapter(chapter1.idChapter)" class="btn btn-warning" style="margin-right: 11px">Biên Tập</button>
+
+    <button (click)="Chapter(chapter1.idChapter)" class="btn btn-success" style="margin-right: 11px">Xem Kết Quả</button>
+
+    <button (click)="deleteChapter(chapter1.idChapter)" class="btn btn-danger" style="margin-right: 11px">Xóa</button>
+    </div>
+    </li>
+   
+    </ul>
+   
+    </div>
+                                           

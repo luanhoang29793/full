@@ -1,0 +1,56 @@
+<div class="container chapter-detail">
+<nav aria-label="breadcrumb"   >
+    <ol class="breadcrumb">
+    <li class="breadcrumb-item"><a [routerLink]="['/user']">Trang Chủ</a></li>
+    <li class="breadcrumb-item"><a [routerLink]="['/user/listStoryCategory',category.idCategory]">{{category.nameCategory}}</a></li>
+    </ol>
+    </nav>
+</div>
+<div class="featured-cover" style="background-image: url('https://yycdn.truyenyy.com/media/genre_cover/bg03.jpeg'); margin-left: 381px; margin-right: 381px; padding-top: 55px; height: 200px; ">
+    <div class="container">
+    <h1 class="text-center display-3" >Truyện {{category.nameCategory}}</h1>
+    </div>  
+</div>
+
+    <div class="novel-list mt-4">
+    <div class="main-col">
+  
+    <section class="section-grid">
+        <div class="title">DANH SÁCH TRUYỆN</div>
+    <ul   class="books-list list-unstyled">
+        <li *ngFor="let book1 of book">
+            <a [routerLink]="['/user/listChapter',book1.idBook]" class="book-img" aria-label="Đọc truyện "><img [src]="book1.nameImage" alt="{{book1.nameBook}}" class="zoom-me lazy"></a>
+            <div class="flex-primary">
+            <h3 class="book-title"><a  [routerLink]="['/user/listChapter',book1.idBook]">{{book1.nameBook}}</a></h3>
+            <div class="book-desc line-clamp line-clamp-2">{{book1.summaryBook}}</div>
+            <div class="d-flex small mt-2">
+            <div><i class="iconfont icon-write icon-18"></i> {{book1.nameAuthor}}</div>
+            </div>
+            <div class="small">
+            <i class="iconfont icon-time icon-14 align-middle"></i>
+            <time class="timeago" datetime="2020-06-01T15:08:20.974480+07:00"></time>
+            </div>
+            </div>
+            </li>
+    </ul>
+    </section>
+    </div>
+    <div class="sidebar-col">
+    <div class="section-grid ranking-heading"  >
+    <h3 class="section-title sm mb-2">Truyện {{category.nameCategory}} Đọc Nhiều Trong Tuần</h3>
+    <ul class="heading-list list-unstyled" *ngFor="let book1 of book">
+    <li class="no1">
+    <div class="info">
+    <a [routerLink]="['/user/listChapter',book1.idBook]" class="name">{{book1.nameBook}}</a>
+    <div class="d-flex">
+    <div class="count mr-2">{{book1.nameAuthor}}</div>
+    </div>
+    </div>
+    <a [routerLink]="['/user/listChapter',book1.idBook]" class="cover" aria-label="book1.nameBook"><img [src]="book1.nameImage" alt="{{book1.nameBook}}" class="lazy"></a>
+    </li>
+   
+    </ul>
+    </div>
+    </div>
+    </div>
+ 

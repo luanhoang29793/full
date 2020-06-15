@@ -1,0 +1,41 @@
+<div class="container-fluid">
+    <button (click)="createAuthor()" class="btn btn-info" style="margin-left: 10px">Thêm Tác giả</button>
+    <hr>
+    <input type="text" [(ngModel)]="searchText" placeholder="Tìm kiếm" />
+
+    <hr>
+    <table class="table table-bordered w-auto">
+        <tr class="table-warning">
+            <th style="width: 15rem;text-align: center">Tác Giả</th>
+            <th style="text-align: center; width:200px">Quốc Gia</th>
+            <th style="text-align: center; width: 1000px;">Giới Thiệu</th>
+            <th style="text-align: center">Sửa</th>
+            <th style="text-align: center">Xóa</th>
+            <!-- <th style="text-align: center">Trang Tác giả</th> -->
+        </tr>
+        <tr *ngFor="let author1 of author | async | filter: searchText |paginate: {itemsPerPage:10,currentPage:p}">
+            <td style="text-align: center">
+                {{author1.nameAuthor}}
+            </td>
+            <td style="text-align: center; ">{{author1.nation}}</td>
+            <td style="text-align: lef">
+                {{author1.information}}
+                <div class="small text-muted"></div>
+            </td>
+            <td>
+                <button (click)="EditAuthor(author1.idAuthor)" class="btn btn-primary"
+                    style="text-align: center; margin-top: 8px">Chỉnh sửa</button>
+            </td>
+            <td>
+                <button (click)="DeleteAuthor(author1.idAuthor)" class="btn btn-danger"
+                    style="text-align: center; margin-top: 8px">Xóa</button>
+            </td>
+            <!-- <td>
+                <button (click)="ListAuthor(author1.idAuthor)" class="btn btn-info"
+                    style="text-align: center;; margin-top: 8px">Trang Tác giả</button>
+            </td> -->
+
+    </table>
+    <pagination-controls (pageChange)="p=$event"></pagination-controls>
+
+</div>
