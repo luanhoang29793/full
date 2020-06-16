@@ -19,16 +19,17 @@
 </div>
 <div class="inner" #document_editor  id="document_editor"><div>{{chapter.contentChapter}}</div></div>
 </div>
-</div>
 
 
-<div class =" container1" >
-    <div class="row">
+
+<br>
+    <div class="row " >
       <div class="col-4">
         <button (click)="firstChapter(chapter.idChapter)" class="btn btn-info" >Chương Trước</button>
     </div>
       <div class="col-4" >
-        <button (click)="Export2Doc(id_chap_content)" class="btn btn-warning"style="margin-left: 124px;;"  >Tải xuống</button>
+     
+      <a href="http://192.168.145.100:8080/chapter/export/{{chapter.idChapter}}" class="btn btn-warning" style="margin-left: 124px;" >Tải xuống</a>
       </div>
       <div class="col-4">
         <button (click)="SecondChapter(chapter.idChapter)" class="btn btn-info"  style="margin-left: 237px;;">Chương Sau</button>

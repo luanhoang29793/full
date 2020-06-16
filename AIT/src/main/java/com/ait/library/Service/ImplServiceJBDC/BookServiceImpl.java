@@ -10,6 +10,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import java.util.Map;
 @Service
@@ -23,7 +24,7 @@ public class BookServiceImpl implements ServiceBook {
 //                "from ((Book inner join Producer on Book.idProducer=Producer.idProducer)" +
 //                "inner join Category on Book.idCategory = Category.idCategory)" +
 //                "inner join Author on Book.idAuthor = Author.IdAuthorWHERE Book.isDelete=0";
-        String sql = "Select Book.idBook,Book.nameImage,Book.nameBook,Book.summaryBook, Category.nameCategory, Author.nameAuthor,Book.idCategory,Book.idAuthor " +
+        String sql = "Select Book.createday,  Book.idBook,Book.nameImage,Book.nameBook,Book.summaryBook, Category.nameCategory, Author.nameAuthor,Book.idCategory,Book.idAuthor " +
                 "             from ((Book inner join Category on Book.idCategory = Category.idCategory) inner join Author on Book.idAuthor = Author.IdAuthor) WHERE Book.isDelete=0 ";
         List<Map<String, Object>> rows = jdbcTemplate.queryForList(sql);
         List<Book> result = new ArrayList<Book>();
@@ -37,6 +38,7 @@ public class BookServiceImpl implements ServiceBook {
             book.setSummaryBook((String) row.get("summaryBook"));
             book.setIdCategory((int) row.get("idCategory"));
             book.setIdAuthor((int) row.get("idAuthor"));
+            book.setCreateDay((Date)row.get("createday"));
 
 
             result.add(book);
@@ -53,7 +55,7 @@ public class BookServiceImpl implements ServiceBook {
 
     @Override
     public Book findById(int id) {
-        String sql = "Select Book.idBook,Book.nameImage,Book.nameBook,Book.summaryBook, Category.nameCategory, Author.nameAuthor,Book.idCategory,Book.idAuthor from ((Book inner join Category on Book.idCategory = Category.idCategory) inner join Author on Book.idAuthor = Author.IdAuthor) WHERE Book.isDelete=0 AND  Book.idBook = ?";
+        String sql = "Select Book.createday,  Book.idBook,Book.nameImage,Book.nameBook,Book.summaryBook, Category.nameCategory, Author.nameAuthor,Book.idCategory,Book.idAuthor from ((Book inner join Category on Book.idCategory = Category.idCategory) inner join Author on Book.idAuthor = Author.IdAuthor) WHERE Book.isDelete=0 AND  Book.idBook = ?";
         RowMapper<Book> rowMapper = new BeanPropertyRowMapper<Book>(Book.class);
         Book book = jdbcTemplate.queryForObject(sql, rowMapper, id);
 
@@ -74,7 +76,7 @@ public class BookServiceImpl implements ServiceBook {
     }
     @Override
     public List<Book> findAllDESC() {
-        String sql = "Select TOP 13 Book.idBook,Book.nameBook,Book.nameImage, Category.nameCategory, Author.nameAuthor, Book.summaryBook" +
+        String sql = "Select TOP 13 Book.createday,  Book.idBook,Book.nameBook,Book.nameImage, Category.nameCategory, Author.nameAuthor, Book.summaryBook" +
                 "                    from ((Category inner join Book on Book.idCategory = Category.idCategory) " +
                 "                   inner join Author on Book.idAuthor = Author.IdAuthor) WHERE Book.isDelete=0 ORDER BY Book.idBook DESC";
         List<Map<String, Object>> rows = jdbcTemplate.queryForList(sql);
@@ -88,13 +90,15 @@ public class BookServiceImpl implements ServiceBook {
             book.setNameCategory((String) row.get("nameCategory"));
             book.setNameProducer((String) row.get("nameProducer"));
             book.setSummaryBook((String) row.get("summaryBook"));
+            book.setCreateDay((Date)row.get("createday"));
+
             result.add(book);
         }
         return result;
     }
     @Override
     public List<Book> top6() {
-        String sql = "Select TOP 10 Book.idBook,Book.nameImage,Book.nameBook, Category.nameCategory, Author.nameAuthor, Book.summaryBook" +
+        String sql = "Select TOP 10 Book.createday, Book.idBook,Book.nameImage,Book.nameBook, Category.nameCategory, Author.nameAuthor, Book.summaryBook" +
                 "                    from ((Category inner join Book on Book.idCategory = Category.idCategory) " +
                 "                   inner join Author on Book.idAuthor = Author.IdAuthor) WHERE Book.isDelete=0 ";
         List<Map<String, Object>> rows = jdbcTemplate.queryForList(sql);
@@ -108,6 +112,8 @@ public class BookServiceImpl implements ServiceBook {
             book.setNameProducer((String) row.get("nameProducer"));
             book.setSummaryBook((String) row.get("summaryBook"));
             book.setNameImage((String) row.get("nameImage"));
+            book.setCreateDay((Date)row.get("createday"));
+
 
             result.add(book);
         }
@@ -115,7 +121,7 @@ public class BookServiceImpl implements ServiceBook {
     }
     @Override
     public List<Book> BookByIDCategory(int id) {
-        String sql = "select book.idBook, Book.nameImage, Book.nameImage,category.IdCategory,book.namebook,Book.summaryBook," +
+        String sql = "select Book.createday,  book.idBook, Book.nameImage, Book.nameImage,category.IdCategory,book.namebook,Book.summaryBook," +
                 " author.nameAuthor,author.idAuthor, Category.nameCategory from ((book inner join Author on book.idAuthor = Author.IdAuthor)" +
                 "inner join Category on Book.idCategory = Category.idCategory) where book.idCategory= ? and book.isDelete =0 ";
         List<Map<String, Object>> rows = jdbcTemplate.queryForList(sql,id);
@@ -131,6 +137,8 @@ public class BookServiceImpl implements ServiceBook {
             book.setNameCategory((String) row.get("nameCategory"));
             book.setNameProducer((String) row.get("nameProducer"));
             book.setSummaryBook((String) row.get("summaryBook"));
+            book.setCreateDay((Date)row.get("createday"));
+
             result.add(book);
         }
         return result;

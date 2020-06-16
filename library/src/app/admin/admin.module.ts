@@ -22,6 +22,8 @@ import { EditCComponent } from './edit-c/edit-c.component';
 import { EditAComponent } from './edit-a/edit-a.component';
 import { UploadImageComponent } from './upload-image/upload-image.component';
 import { CKEditorModule } from 'ngx-ckeditor';
+import { ChartsModule } from 'ng2-charts';
+import { BarChartComponent } from '../Charts/bar-chart/bar-chart.component';
 
 
 
@@ -93,7 +95,11 @@ const routes = [
       {
         path: 'upload',
         component: UploadImageComponent,
-      }
+      },
+      {
+        path: 'statistical',
+        component: BarChartComponent,
+      },
 
     ]
   }
@@ -107,14 +113,15 @@ const routes = [
     NgxPaginationModule,
     DataTablesModule,
     FlxUiDatatableModule,
-    Ng2SearchPipeModule,
+    Ng2SearchPipeModule,ChartsModule,
     CKEditorModule,
+
     
     
   ],
-  providers: [FlxUiDataTable],
+  providers: [FlxUiDataTable,],
   declarations: [AdminComponent, CreateSComponent, CreatelistAComponent,
-    CreatelistCComponent,
+    CreatelistCComponent,BarChartComponent,
     CreateCComponent, ListSComponent, CreateAComponent, CreateChapterComponent, ListChapterComponent, EditSComponent, EditChapterComponent, EditCComponent, EditAComponent, UploadImageComponent]
 })
 export class AdminModule { }

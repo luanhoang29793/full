@@ -1,8 +1,12 @@
 
-
- <div class="search-hero">
+  <div>
+      <a href="http://192.168.145.100:8080/book/export" class="btn btn-success">Export danh sách truyện</a>
+  </div>
+  <br>
+      <div class="search-hero">
     <input class="form-control" type="text" name="search" [(ngModel)]="searchText" autocomplete="on" placeholder="&#61442; Nhập tên truyện hoặc tác giả">
   </div>
+  <br>
 <ul class="list-group mb-4" *ngFor="let book1 of book |async|paginate: { itemsPerPage: 5, currentPage: p }| filter:searchText " >
     <li class="list-group-item flex-column align-items-start">
     <h5 class="mb-1" style="color:blue;">

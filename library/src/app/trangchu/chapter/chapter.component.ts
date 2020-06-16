@@ -80,6 +80,7 @@ export class ChapterComponent implements OnInit {
     
     document.body.removeChild(downloadLink);
 }
+
 ExportChapter(id:number){
   console.log("vao export")
   console.log(id,"id")

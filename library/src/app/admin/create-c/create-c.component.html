@@ -1,6 +1,6 @@
-<div class="container-fluid">
+<div  class="container-fluid">
    <h1>Thêm Thể loại </h1>
-    <form (ngSubmit)="onSubmit()">
+    <form ngNativeValidate (ngSubmit)="onSubmit()">
       <div class="form-group">
          <label for="name">Tên Thể Loại</label>
          <input type="text" class="form-control" id="firstName" required [(ngModel)]="category.nameCategory" name="firstName">

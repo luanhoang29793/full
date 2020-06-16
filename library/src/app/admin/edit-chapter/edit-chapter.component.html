@@ -3,7 +3,7 @@
     <h1 class="page-header">{{chapter.nameBook}} 
     </h1>
    
-    <form class="mt-4" id="id_form" (ngSubmit)="onSubmit()">
+    <form ngNativeValidate class="mt-4" id="id_form" (ngSubmit)="onSubmit()">
         <div id="div_id_chap_title" class="form-group"> <label for="id_chap_title" class="col-form-label ">
                 Tiêu đề Chương
             </label>

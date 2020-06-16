@@ -129,7 +129,7 @@ public class BookController {
         // return IOUtils.toByteArray(in);
 
         HttpHeaders headers = new HttpHeaders();
-        headers.add("Content-Disposition", "attachment; filename="+ "luan"+".xlsx");
+        headers.add("Content-Disposition", "attachment; filename="+ "Danh sách truyện"+".xlsx");
 
         return ResponseEntity
                 .ok()

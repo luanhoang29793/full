@@ -12,5 +12,6 @@ export class Book {
     idAuthor: number;
     idProducer: number;
     isDelete:boolean;
-    author:Author
+    author:Author;
+    createDay: Date;
 }

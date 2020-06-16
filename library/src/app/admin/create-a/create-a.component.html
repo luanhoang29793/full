@@ -1,6 +1,6 @@
 <div class="container-fluid">
     <h1>Thêm Tác giả </h1>
-     <form (ngSubmit)="onSubmit()">
+     <form ngNativeValidate  (ngSubmit)="onSubmit()">
        <div class="form-group">
           <label for="name">Tên Tác giả</label>
           <input type="text" class="form-control" id="firstName" required [(ngModel)]="author.nameAuthor" name="firstName">

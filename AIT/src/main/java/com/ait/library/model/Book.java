@@ -1,5 +1,7 @@
 package com.ait.library.model;
 
+import java.util.Date;
+
 public class Book {
     private int idBook;
     private String nameBook;
@@ -13,7 +15,16 @@ public class Book {
     private int idAuthor;
     private int idProducer;
     private boolean isDelete;
+    public Date createDay;
     public Book(){}
+
+    public Date getCreateDay() {
+        return createDay;
+    }
+
+    public void setCreateDay(Date createDay) {
+        this.createDay = createDay;
+    }
 
     public String getNameImage() {
         return nameImage;
