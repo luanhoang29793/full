@@ -6,6 +6,8 @@ import { Chapter } from 'src/app/model/chapter';
 import {
   DocumentEditorComponent, EditorService, SelectionService, SfdtExportService, WordExportService
 } from '@syncfusion/ej2-angular-documenteditor';
+import { CommentService } from 'src/app/service/comment.service';
+import { Local } from 'protractor/built/driverProviders';
 
 
 @Component({
@@ -19,11 +21,13 @@ import {
 export class ChapterComponent implements OnInit {
   id: number;
   chapter : Chapter;
+  comment: Comment =new Comment();
   @ViewChild('document_editor', { static: false }) document_editor: DocumentEditorComponent;
   constructor(
     private route: ActivatedRoute,
     private router: Router,
     private chapterService: ChapterService,
+    private commentService: CommentService
   ) { }
 
   ngOnInit() {
@@ -40,6 +44,8 @@ export class ChapterComponent implements OnInit {
       console.log(data)
       this.chapter = data;
     }, error => console.log(error));
+
+    
   }
   saveAsDocx(){
     console.log("vao dowload");
@@ -92,7 +98,6 @@ ExportChapter(id:number){
 firstChapter(id1: number){
   this.id = id1-1;
   console.log(this.id,"id");
-
   this.reload(this.id)
   this.router.navigate(['user/Chapter',this.id]);
 
@@ -100,9 +105,8 @@ firstChapter(id1: number){
 SecondChapter(id2: number){
   this.id = id2+1;
   console.log(id2,"id");
-  this.router.navigate(['user/Chapter',id2]);
   this.reload(this.id)
-
+  this.router.navigate(['user/Chapter',this.id]);
 
 }
   }

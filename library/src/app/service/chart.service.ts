@@ -7,7 +7,8 @@ import{Observable} from 'rxjs'
 })
 export class ChartService {
   private ip = "http://192.168.145.100";
-  private chartsUrl = this.ip +":8080/charts"
+  // private chartsUrl = this.ip +":8080/charts"
+  private chartsUrl = "http://localhost:8080/charts"
 
   constructor(
     private http:HttpClient

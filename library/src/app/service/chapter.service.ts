@@ -7,7 +7,8 @@ import { Observable } from 'rxjs';
 })
 export class ChapterService {
 private ip ="http://192.168.145.100";
-  private chapterUrl =this.ip + ":8080/chapter"
+  // private chapterUrl =this.ip + ":8080/chapter"
+  private chapterUrl ="http://localhost:8080/chapter"
 
   
   constructor(

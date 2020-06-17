@@ -29,12 +29,17 @@
     </div>
       <div class="col-4" >
      
-      <a href="http://192.168.145.100:8080/chapter/export/{{chapter.idChapter}}" class="btn btn-warning" style="margin-left: 124px;" >Tải xuống</a>
+      <!-- <a href="http://192.168.145.100:8080/chapter/export/{{chapter.idChapter}}" class="btn btn-warning" style="margin-left: 124px;" >Tải xuống</a> -->
+      <a href="http://localhost:8080/chapter/export/{{chapter.idChapter}}" class="btn btn-warning" style="margin-left: 124px;" >Tải xuống</a>
+
       </div>
       <div class="col-4">
         <button (click)="SecondChapter(chapter.idChapter)" class="btn btn-info"  style="margin-left: 237px;;">Chương Sau</button>
     </div>
     </div>
+    <app-comment></app-comment>
+   
+  <app-footer-id></app-footer-id>
   </div>
 
 

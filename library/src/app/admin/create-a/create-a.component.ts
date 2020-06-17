@@ -20,10 +20,6 @@ export class CreateAComponent implements OnInit {
 
   ngOnInit() {
   }
-  newCategory(): void {
-    this.submitted = false;
-    this.author = new Author();
-  }
   save() {
     this.authorService.createAuthor(this.author)
     .subscribe((data) => {Swal.fire({

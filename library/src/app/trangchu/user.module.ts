@@ -11,6 +11,16 @@ import { ListCategoryIdComponent } from './list-category-id/list-category-id.com
 import { ChapterComponent } from '../trangchu/chapter/chapter.component';
 import { ListStoryCategoryComponent } from './list-story-category/list-story-category.component';
 import { ListChapterComponent } from './list-chapter/list-chapter.component';
+import {CommentComponent} from'./comment/comment.component';
+import { FormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
+import { NgxPaginationModule } from 'ngx-pagination';
+import { DataTablesModule } from 'angular-datatables';
+import { FlxUiDatatableModule, FlxUiDataTable } from 'flx-ui-datatable';
+import { Ng2SearchPipeModule } from 'ng2-search-filter'
+import { CKEditorModule } from 'ngx-ckeditor';
+import { ChartsModule } from 'ng2-charts';
+import { ListCommentComponent } from './list-comment/list-comment.component';
 
 const routes = [
   {
@@ -36,7 +46,14 @@ const routes = [
 @NgModule({
   imports: [
     CommonModule,
-    RouterModule.forChild(routes,)
+    RouterModule.forChild(routes), FormsModule,
+    HttpClientModule,
+    NgxPaginationModule,
+    DataTablesModule,
+    FlxUiDatatableModule,
+    Ng2SearchPipeModule,ChartsModule,
+    CKEditorModule,
+
   ],
   declarations: [IndexComponent,
     HeaderIDComponent,
@@ -47,6 +64,6 @@ const routes = [
     ListCategoryIdComponent,
     ChapterComponent,
     ListStoryCategoryComponent,
-    ListChapterComponent,]
+    ListChapterComponent,CommentComponent, ListCommentComponent]
 })
 export class UserModule { }

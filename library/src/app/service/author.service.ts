@@ -7,7 +7,9 @@ import{Observable} from 'rxjs'
 })
 export class AuthorService {
   private ip = "http://192.168.145.100";
-  private authorUrl = this.ip +":8080/author"
+  // private authorUrl = this.ip +":8080/author"
+  private authorUrl = "http://localhost:8080/author"
+
 
   constructor(
     private http:HttpClient

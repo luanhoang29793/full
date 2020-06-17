@@ -8,7 +8,8 @@ import { Observable } from 'rxjs';
 export class CategoryService {
   private ip = "http://192.168.145.100";
 
-  private categoryUrl = this.ip+ ":8080/category"
+  // private categoryUrl = this.ip+ ":8080/category"
+  private categoryUrl = "http://localhost:8080/category"
 
   
   constructor(

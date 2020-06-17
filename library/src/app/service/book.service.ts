@@ -8,7 +8,8 @@ import{Observable}from 'rxjs'
 export class BookService {
   private ip = "http://192.168.145.100";
 
-  private bookUrl = this.ip +":8080/book"
+  // private bookUrl = this.ip +":8080/book"
+  private bookUrl = "http://localhost:8080/book"
 
   
   constructor(
